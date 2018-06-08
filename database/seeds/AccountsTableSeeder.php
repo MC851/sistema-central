@@ -12,6 +12,8 @@ class AccountsTableSeeder extends Seeder
      */
     public function run()
     {
+        \App\Account::truncate();
+
         // First let's create our users.
         $usersSeeder = new UsersTableSeeder();
         $usersSeeder->run();
@@ -23,6 +25,7 @@ class AccountsTableSeeder extends Seeder
             \App\Account::create([
                 'user_id' => $user->id,
                 'rfid_key' => $faker->uuid,
+                'balance' => $faker->randomNumber(8),
             ]);
         }
     }

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class Payment extends Model
 {
-    protected $fillable = ['rfid_key', 'balance', 'user_id'];
+    protected $fillable = ['description', 'user_id', 'price'];
 
     public function user()
     {

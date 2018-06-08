@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Account;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class AccountController extends Controller
 {
@@ -81,5 +83,35 @@ class AccountController extends Controller
     public function destroy(Account $account)
     {
         //
+    }
+
+    public function transfer() {
+        $this->validate(request(), [
+            'to' => 'required|email',
+            'ammount' => 'required|integer',
+        ]);
+
+        $user = Auth::guard('api')->user();
+
+        $toEmail = request('to');
+
+        $userTo = User::where('email', '=', $toEmail)->first();
+
+        if (!$userTo) {
+            return response()->json([
+                'message' => 'User not found',
+            ], 404);
+        }
+
+        $user->account->balance = $user->account->balance - request('ammount');
+        $user->account->save();
+
+        $userTo->account->balance = $userTo->account->balance + request('ammount');
+        $userTo->account->save();
+
+        return response()->json([
+            'message' => 'Success.',
+            'balance' => $user->account->balance,
+        ], 200);
     }
 }

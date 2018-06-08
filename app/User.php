@@ -18,6 +18,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rfid_key',
     ];
 
     /**
@@ -33,6 +34,11 @@ class User extends Authenticatable
     public function account()
     {
         return $this->hasOne(\App\Account::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(\App\Payment::class);
     }
 
     public function generateToken()
