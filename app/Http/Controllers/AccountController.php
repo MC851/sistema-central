@@ -6,6 +6,7 @@ use App\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
@@ -16,7 +17,9 @@ class AccountController extends Controller
      */
     public function index()
     {
-        //
+        $accounts = Account::all();
+
+        return view('accounts.listing', compact('accounts'));
     }
 
     /**
@@ -37,7 +40,26 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6',
+            'rfid_key' => 'required|string|max:255|unique:accounts',
+        ]);
+
+        $user = User::create([
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => Hash::make(request('password')),
+        ]);
+
+        $account = Account::create([
+            'user_id' => $user->id,
+            'balance' => 0,
+            'rfid_key' => request('rfid_key'),
+        ]);
+
+        return redirect('/accounts');
     }
 
     /**
@@ -48,7 +70,7 @@ class AccountController extends Controller
      */
     public function show(Account $account)
     {
-        //
+        return view('accounts.view', compact('account'));
     }
 
     /**

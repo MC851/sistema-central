@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::middleware('guest')->get('/login', 'Auth\LoginController@loginPage');
+Route::post('/login-admin', 'Auth\LoginController@loginAdmin');
+Route::get('/accounts', 'AccountController@index');
+Route::get('/accounts/{account}', 'AccountController@show');
+Route::post('/accounts', 'AccountController@store');

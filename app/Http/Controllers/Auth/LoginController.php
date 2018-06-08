@@ -85,6 +85,27 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
+    public function loginAdmin(Request $request)
+    {
+        $this->validateLogin($request);
+
+        if ($this->attemptLogin($request)) {
+            $user = $this->guard()->user();
+            $user->generateToken();
+
+            if ($user->type !== 'administrator') {
+                Auth::logout();
+                return redirect('/');
+            }
+        }
+
+        return redirect('/accounts');
+    }
+
+    public function loginPage() {
+        return view('login', []);
+    }
+
     public function logout(Request $request)
     {
         $user = Auth::guard('api')->user();
@@ -93,6 +114,7 @@ class LoginController extends Controller
             $user->api_token = null;
             $user->save();
         }
+        Auth::logout();
 
         return response()->json(['data' => 'User logged out.'], 200);
     }
