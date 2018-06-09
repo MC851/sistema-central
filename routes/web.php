@@ -12,6 +12,7 @@
 */
 
 Route::middleware('guest')->get('/login', 'Auth\LoginController@loginPage');
+Route::get('/', 'Auth\LoginController@index');
 Route::post('/login-admin', 'Auth\LoginController@loginAdmin');
 Route::get('/accounts', 'AccountController@index');
 Route::get('/accounts/{account}', 'AccountController@show');

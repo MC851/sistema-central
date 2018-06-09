@@ -37,7 +37,16 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except(['logout', 'destroy']);
+        $this->middleware('guest')->except(['logout', 'destroy', 'index']);
+    }
+
+    public function index()
+    {
+        if (Auth::check()) {
+            return redirect('/accounts');
+        } else {
+            return redirect('/login');
+        }
     }
 
     public function validateLogin(Request $request)
@@ -114,7 +123,6 @@ class LoginController extends Controller
             $user->api_token = null;
             $user->save();
         }
-        Auth::logout();
 
         return response()->json(['data' => 'User logged out.'], 200);
     }
