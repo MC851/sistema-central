@@ -268,7 +268,7 @@ module.exports = __webpack_require__(2);
         $('.placeholder').each(function () {
           var text = $(this).text();
           text = text.replace('{name}', data.name);
-          text = text.replace('{extract}', data.balance);
+          text = text.replace('{extract}', data.balance / 100000000);
           $(this).text(text);
         });
       },
@@ -307,7 +307,7 @@ module.exports = __webpack_require__(2);
             text: descripion
           }));
           $tr.append($('<td>', {
-            text: price
+            text: price / 100000000
           }));
           $tbody.append($tr);
         }
