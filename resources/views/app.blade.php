@@ -93,7 +93,7 @@
     <div class="extract-screen screen">
         <br />
         <h1 class="text-center placeholder" placeholder_name="{name}">Olá, {name}</h1>
-        <p class="text-center placeholder"placeholder_extract="{extract}">Seu extrato é de <span style="font-size:1.4rem">{extract}</span> DK coins</p>
+        <p class="text-center placeholder"placeholder_extract="{extract}">Seu extrato é de <span class="bigger">{extract}</span> DK coins</p>
         <br />
         <br />
         <p class="text-center">Ultimos lançamentos:</p>
