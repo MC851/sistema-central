@@ -29,12 +29,12 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" id="email" placeholder="Email" name="email"
-                       value="john3@gmail.com">
+                       value="">
             </div>
             <div class="form-group">
                 <label for="password">Senha</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password"
-                       value="blabla">
+                       value="">
             </div>
             <div class="form-group">
                 <input type="submit" class="form-control btn-primary" id="submit" placeholder="Submit" name="submit"
@@ -48,12 +48,12 @@
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" placeholder="name" name="Name"
-                       value="John Doe">
+                       value="">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" id="email" placeholder="Email" name="email"
-                       value="john3@gmail.com">
+                       value="">
             </div>
             <div class="form-group">
                 <label for="rfid_key">Chave RFID</label>
@@ -63,11 +63,11 @@
             <div class="form-group">
                 <label for="password">Senha</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password"
-                       value="blabla">
+                       value="">
             </div>
             <div class="form-group">
                 <input type="submit" class="form-control btn-primary" id="submit" placeholder="Register" name="submit"
-                       value="Cadastrar">
+                       value="">
             </div>
         </form>
     </div>
