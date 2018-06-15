@@ -61,6 +61,9 @@
           localStorage.name = data.data.name;
           localStorage.email = data.data.email;
           localStorage.api_token = data.data.api_token;
+          $('.anon-screens, .screen').hide();
+          $('.auth-screens, .extract-screen').show();
+          refreshData();
         },
         error: function (data) {
           $('#password, #email').addClass('is-invalid');
@@ -90,9 +93,12 @@
           localStorage.name = data.data.name;
           localStorage.email = data.data.email;
           localStorage.api_token = data.data.api_token;
+          $('.anon-screens, .screen').hide();
+          $('.auth-screens, .extract-screen').show();
+          refreshData();
         },
         error: function (data) {
-          setErrormessage(data.message);
+          setErrormessage(data.responseJSON.message);
           $('#password, #email, #name, #rfid_key', '.registration-form').addClass('is-invalid');
         }
       });

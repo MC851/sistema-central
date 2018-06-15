@@ -138,6 +138,9 @@ module.exports = __webpack_require__(2);
           localStorage.name = data.data.name;
           localStorage.email = data.data.email;
           localStorage.api_token = data.data.api_token;
+          $('.anon-screens, .screen').hide();
+          $('.auth-screens, .extract-screen').show();
+          refreshData();
         },
         error: function error(data) {
           $('#password, #email').addClass('is-invalid');
@@ -166,9 +169,12 @@ module.exports = __webpack_require__(2);
           localStorage.name = data.data.name;
           localStorage.email = data.data.email;
           localStorage.api_token = data.data.api_token;
+          $('.anon-screens, .screen').hide();
+          $('.auth-screens, .extract-screen').show();
+          refreshData();
         },
         error: function error(data) {
-          setErrormessage(data.message);
+          setErrormessage(data.responseJSON.message);
           $('#password, #email, #name, #rfid_key', '.registration-form').addClass('is-invalid');
         }
       });
