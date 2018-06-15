@@ -24,7 +24,7 @@
 </header>
 
 <div class="anon-screens">
-    <div class="login-screen">
+    <div class="login-screen screen">
         <form class="col-md-12 login-form" action="#" method="POST">
             <div class="form-group">
                 <label for="email">Email</label>
@@ -32,7 +32,7 @@
                        value="john3@gmail.com">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Senha</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password"
                        value="blabla">
             </div>
@@ -43,7 +43,7 @@
         </form>
     </div>
 
-    <div class="registration-screen">
+    <div class="registration-screen screen">
         <form class="col-md-12 registration-form" action="#" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -56,29 +56,101 @@
                        value="john3@gmail.com">
             </div>
             <div class="form-group">
-                <label for="rfid_key">RFID Key</label>
+                <label for="rfid_key">Chave RFID</label>
                 <input type="text" class="form-control" id="rfid_key" placeholder="RFID Key" name="rfid_key"
                        value="my_rfid_key">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Senha</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password"
                        value="blabla">
             </div>
             <div class="form-group">
                 <input type="submit" class="form-control btn-primary" id="submit" placeholder="Register" name="submit"
-                       value="Register">
+                       value="Cadastrar">
             </div>
         </form>
     </div>
     <div class="switcher row">
-        <div class="col-6 login">Login</div>
-        <div class="col-6 register">Registration</div>
+        <div class="col-6 login text-center">Login</div>
+        <div class="col-6 register text-center">Registration</div>
+    </div>
+</div>
+<div class="auth-screens">
+    <div class="menu">
+        <div class="btn-group-vertical" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-refresh">Atualizar</button>
+            <button type="button" class="btn btn-extract">Extrato</button>
+            <button type="button" class="btn btn-payment">Fazer pagamento</button>
+            <button type="button" class="btn btn-transfer">Fazer transferencia</button>
+            <button type="button" class="btn btn-logout">Logout</button>
+        </div>
+    </div>
+    <div class="error-messages">
+        <p class="text-warning text-center"></p>
+    </div>
+
+    <div class="extract-screen screen">
+        <br />
+        <h1 class="text-center placeholder">Olá, {name}</h1>
+        <p class="text-center placeholder">Seu extrato é de {extract} DK coins</p>
+        <br />
+        <br />
+        <p class="text-center">Ultimos lançamentos:</p>
+        <table class="table payments">
+            <thead>
+            <tr>
+                <th scope="col">Descrição</th>
+                <th scope="col">Preço</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="payment-screen screen">
+        <br />
+        <h1 class="text-center placeholder">Olá, {name}</h1>
+        <br />
+        <form class="col-md-12 payment-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="email">ID do Pagamento</label>
+                <input type="number" class="form-control" id="payment_id" placeholder="ID do Pagamento" name="payment_id"
+                       value="">
+            </div>
+            <div class="form-group">
+                <label for="password">Descrição</label>
+                <input type="text" class="form-control" id="description" placeholder="description" name="description"
+                       value="">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control btn-primary" id="submit" placeholder="Submit" name="submit"
+                       value="Fazer pagamento">
+            </div>
+        </form>
+    </div>
+    <div class="transfer-screen screen">
+        <br />
+        <h1 class="text-center placeholder">Olá, {name}</h1>
+        <br />
+        <form class="col-md-12 transfer-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="email">E-mail destinatário</label>
+                <input type="email" class="form-control" id="email" placeholder="E-mail destinatário" name="email"
+                       value="">
+            </div>
+            <div class="form-group">
+                <label for="ammount">Montante</label>
+                <input type="number" class="form-control" id="ammount" placeholder="Montante" name="ammount"
+                       value="">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control btn-primary" id="submit" placeholder="Submit" name="submit"
+                       value="Fazer transferência">
+            </div>
+        </form>
     </div>
 </div>
 
-<script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.23.5'><\/script>".replace("HOST", location.hostname));
-    //]]></script>
 </body>
 </html>

@@ -29,9 +29,37 @@ body.app {
     padding: 10px;
   }
 
+  .anon-screens {
+    form {
+      margin-top: calc(470px / 2);
+    }
+  }
+
   form {
-    margin-top: calc(470px / 2);
     label {
+      color: white;
+    }
+  }
+
+  .switcher {
+    color: white;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+  }
+
+  .auth-screens {
+    h1,
+    p {
+      color: white;
+    }
+  }
+
+  .payments {
+    td,
+    th {
       color: white;
     }
   }

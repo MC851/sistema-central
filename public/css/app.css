@@ -10434,11 +10434,34 @@ body.app header h1 {
   padding: 10px;
 }
 
-body.app form {
+body.app .anon-screens form {
   margin-top: calc(470px / 2);
 }
 
 body.app form label {
+  color: white;
+}
+
+body.app .switcher {
+  color: white;
+}
+
+body.app .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body.app .auth-screens h1,
+body.app .auth-screens p {
+  color: white;
+}
+
+body.app .payments td,
+body.app .payments th {
   color: white;
 }
 
