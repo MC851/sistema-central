@@ -22,21 +22,60 @@
 <header>
     <h1>DK Bank</h1>
 </header>
-<form class="col-md-12 login-form" action="#" method="POST">
-    <input type="hidden" name="_token" value="OBLY8AT9ZHfs1zdc7FYbvsBiA1NGRXKbiDPTvp8h">
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="email" placeholder="Email" name="email">
+
+<div class="anon-screens">
+    <div class="login-screen">
+        <form class="col-md-12 login-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Email" name="email"
+                       value="john3@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+                       value="blabla">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control btn-primary" id="submit" placeholder="Submit" name="submit"
+                       value="Login">
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="formGroupExampleInput2">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+
+    <div class="registration-screen">
+        <form class="col-md-12 registration-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="name" name="Name"
+                       value="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Email" name="email"
+                       value="john3@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="rfid_key">RFID Key</label>
+                <input type="text" class="form-control" id="rfid_key" placeholder="RFID Key" name="rfid_key"
+                       value="my_rfid_key">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+                       value="blabla">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="form-control btn-primary" id="submit" placeholder="Register" name="submit"
+                       value="Register">
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <input type="submit" class="form-control btn-primary" id="submit" placeholder="Submit" name="submit"
-               value="Login">
+    <div class="switcher row">
+        <div class="col-6 login">Login</div>
+        <div class="col-6 register">Registration</div>
     </div>
-</form>
+</div>
 
 <script id="__bs_script__">//<![CDATA[
     document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.23.5'><\/script>".replace("HOST", location.hostname));
