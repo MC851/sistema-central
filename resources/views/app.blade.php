@@ -58,7 +58,7 @@
             <div class="form-group">
                 <label for="rfid_key">Chave RFID</label>
                 <input type="text" class="form-control" id="rfid_key" placeholder="RFID Key" name="rfid_key"
-                       value="my_rfid_key">
+                       value="">
             </div>
             <div class="form-group">
                 <label for="password">Senha</label>
@@ -67,7 +67,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" class="form-control btn-primary" id="submit" placeholder="Register" name="submit"
-                       value="">
+                       value="Cadastrar">
             </div>
         </form>
     </div>
@@ -92,8 +92,8 @@
 
     <div class="extract-screen screen">
         <br />
-        <h1 class="text-center placeholder">Olá, {name}</h1>
-        <p class="text-center placeholder">Seu extrato é de {extract} DK coins</p>
+        <h1 class="text-center placeholder" placeholder_name="{name}">Olá, {name}</h1>
+        <p class="text-center placeholder"placeholder_extract="{extract}">Seu extrato é de <span style="font-size:1.4rem">{extract}</span> DK coins</p>
         <br />
         <br />
         <p class="text-center">Ultimos lançamentos:</p>
@@ -110,7 +110,7 @@
     </div>
     <div class="payment-screen screen">
         <br />
-        <h1 class="text-center placeholder">Olá, {name}</h1>
+        <h1 class="text-center placeholder" placeholder_name="{name}">Olá, {name}</h1>
         <br />
         <form class="col-md-12 payment-form" action="#" method="POST">
             <div class="form-group">
@@ -131,7 +131,7 @@
     </div>
     <div class="transfer-screen screen">
         <br />
-        <h1 class="text-center placeholder">Olá, {name}</h1>
+        <h1 class="text-center placeholder" placeholder_name="{name}">Olá, {name}</h1>
         <br />
         <form class="col-md-12 transfer-form" action="#" method="POST">
             <div class="form-group">
