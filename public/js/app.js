@@ -122,7 +122,7 @@ module.exports = __webpack_require__(2);
     $('.login-form').on('submit', function (e) {
       e.preventDefault();
       $.ajax({
-        url: 'http://sistema-central.test/api/login',
+        url: 'http://mc857.viniciusfabri.com/api/login',
         type: 'post',
         data: JSON.stringify({
           email: $('.login-form #email').val(),
@@ -188,7 +188,7 @@ module.exports = __webpack_require__(2);
       var id = $('.payment-form #payment_id').val();
       var price = id.substring(0, 7);
       $.ajax({
-        url: 'http://sistema-central.test/api/payments',
+        url: 'http://mc857.viniciusfabri.com/api/payments',
         type: 'post',
         data: JSON.stringify({
           api_token: localStorage.api_token,
@@ -253,7 +253,7 @@ module.exports = __webpack_require__(2);
   function refreshData() {
     setErrormessage('');
     $.ajax({
-      url: 'http://sistema-central.test/api/user',
+      url: 'http://mc857.viniciusfabri.com/api/user',
       type: 'get',
       data: {
         api_token: localStorage.api_token
@@ -275,7 +275,7 @@ module.exports = __webpack_require__(2);
       error: function error(data) {}
     });
     $.ajax({
-      url: 'http://sistema-central.test/api/payments',
+      url: 'http://mc857.viniciusfabri.com/api/payments',
       type: 'get',
       data: {
         api_token: localStorage.api_token
