@@ -45,7 +45,7 @@
     $('.login-form').on('submit', function (e) {
       e.preventDefault();
       $.ajax({
-        url: 'https://mc857.viniciusfabri.com/api/login',
+        url: 'http://sistema-central.test/api/login',
         type: 'post',
         data: JSON.stringify({
           email: $('.login-form #email').val(),
@@ -58,6 +58,7 @@
         dataType: 'json',
         success: function (data) {
           $('#password, #email').removeClass('is-invalid');
+          localStorage.id = data.data.id;
           localStorage.name = data.data.name;
           localStorage.email = data.data.email;
           localStorage.api_token = data.data.api_token;
@@ -93,6 +94,7 @@
           localStorage.name = data.data.name;
           localStorage.email = data.data.email;
           localStorage.api_token = data.data.api_token;
+          localStorage.id = data.data.id;
           $('.anon-screens, .screen').hide();
           $('.auth-screens, .extract-screen').show();
           refreshData();
@@ -111,7 +113,7 @@
       var id = $('.payment-form #payment_id').val();
       var price = id.substring(0, 7);
       $.ajax({
-        url: 'https://mc857.viniciusfabri.com/api/payments',
+        url: 'http://sistema-central.test/api/payments',
         type: 'post',
         data: JSON.stringify({
           api_token: localStorage.api_token,
@@ -180,7 +182,7 @@
   function refreshData() {
     setErrormessage('');
     $.ajax({
-      url: 'https://mc857.viniciusfabri.com/api/user',
+      url: 'http://sistema-central.test/api/user',
       type: 'get',
       data: {
         api_token: localStorage.api_token
@@ -203,7 +205,7 @@
       }
     });
     $.ajax({
-      url: 'https://mc857.viniciusfabri.com/api/payments',
+      url: 'http://sistema-central.test/api/payments',
       type: 'get',
       data: {
         api_token: localStorage.api_token
@@ -216,10 +218,20 @@
       success: function (data) {
         var $tbody = $('.payments tbody');
         $tbody.empty();
-        var arrayLength = data.length;
-        for (var i = 0; i < arrayLength; i++) {
-          var descripion = data[i].description;
-          var price = data[i].price;
+          for (var key in data) {
+          if (data[key].description) {
+              var descripion = data[key].description;
+              var price = data[key].price;
+          } else {
+            if (localStorage.id == data[key].user_id) {
+                var descripion = "Transferencia para " + data[key].to_user_id;
+                var price = -data[key].to_user_id;
+            }
+            else {
+                var descripion = "Transferencia de " + data[key].user_id;
+                var price = data[key].ammount;
+            }
+          }
 
           var $tr = $('<tr />');
           $tr.append($('<td>', {

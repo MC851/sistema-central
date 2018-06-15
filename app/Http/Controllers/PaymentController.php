@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Payment;
+use App\Transfer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,14 @@ class PaymentController extends Controller
     {
         $user = Auth::guard('api')->user();
 
-        return $user->payments;
+        $payments = collect($user->payments);
+        $payments_to_me = Transfer::where('to_user_id', '=', $user->id)->get();
+        $transfers = collect($user->transfers);
+
+        $all = $payments->merge($transfers)->merge($payments_to_me)->sortByDesc('created_at');
+
+
+        return $all;
     }
 
     /**

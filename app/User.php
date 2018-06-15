@@ -49,4 +49,9 @@ class User extends Authenticatable
 
         return $this->api_token;
     }
+
+    public function transfers()
+    {
+        return $this->hasMany(Transfer::class);
+    }
 }

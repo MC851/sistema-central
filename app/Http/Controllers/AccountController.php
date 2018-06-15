@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Transfer;
 
 class AccountController extends Controller
 {
@@ -124,6 +125,12 @@ class AccountController extends Controller
                 'message' => 'User not found',
             ], 404);
         }
+
+        $transfer = new Transfer();
+        $transfer->to_user_id = $userTo->id;
+        $transfer->user_id = $user->id;
+        $transfer->ammount = request('ammount');
+        $transfer->save();
 
         $user->account->balance = $user->account->balance - request('ammount');
         $user->account->save();
