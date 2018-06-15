@@ -17,3 +17,7 @@ Route::post('/login-admin', 'Auth\LoginController@loginAdmin');
 Route::get('/accounts', 'AccountController@index');
 Route::get('/accounts/{account}', 'AccountController@show');
 Route::post('/accounts', 'AccountController@store');
+
+Route::get('/app', function () {
+    return view('app', array());
+});

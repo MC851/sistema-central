@@ -10417,3 +10417,28 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+html.app {
+  height: 100%;
+}
+
+body.app {
+  background-color: #4D4365;
+  height: 100%;
+}
+
+body.app header h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+body.app form {
+  margin-top: calc(470px / 2);
+}
+
+body.app form label {
+  color: white;
+}
+
