@@ -10442,6 +10442,10 @@ body.app form label {
   color: white;
 }
 
+body.app .btn {
+  background-color: #dddddd;
+}
+
 body.app .switcher {
   color: white;
 }
