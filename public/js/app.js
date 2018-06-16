@@ -272,7 +272,7 @@ module.exports = __webpack_require__(2);
           $(this).attr('placeholder_name', data.name);
 
           var placeholder_extract = $(this).attr('placeholder_extract');
-          var balance = String(data.balance / 100000000);
+          var balance = String((data.balance / 100000000).toFixed(10));
           text = text.replace(placeholder_extract, balance);
           $(this).attr('placeholder_extract', balance);
           $(this).html(text);
@@ -313,7 +313,7 @@ module.exports = __webpack_require__(2);
             text: descripion
           }));
           $tr.append($('<td>', {
-            text: price / 100000000
+            text: (price / 100000000).toFixed(10)
           }));
           $tbody.append($tr);
         }
