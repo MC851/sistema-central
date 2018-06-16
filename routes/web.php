@@ -21,3 +21,8 @@ Route::post('/accounts', 'AccountController@store');
 Route::get('/app', function () {
     return view('app', array());
 });
+
+
+Route::get('/atm', function () {
+    return view('atm', array());
+});
